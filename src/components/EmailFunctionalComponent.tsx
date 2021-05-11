@@ -4,10 +4,19 @@ import { changeEmail } from "../store/reducers/profileReducer";
 import { TStore } from "../store/store";
 
 const EmailFunctionalComponent = () => {
+  
+  /**
+   * This hook returns a reference to the dispatch function from the Redux store. 
+   * You may use it to dispatch actions as needed.
+   */
   const dispatch = useDispatch();
-  let htmlInputElement = React.createRef<HTMLInputElement>();
-
+  /**
+   * The equivalent of map state to props is useSelector. 
+   * It takes in a function argument that returns the part of the state that you want. 
+   */
   const { email } = useSelector((state: TStore) => state.profileReducer);
+
+  let htmlInputElement = React.createRef<HTMLInputElement>();
 
   const handleEmailChange = () => {
     var value = "newEmail@gmail.com";

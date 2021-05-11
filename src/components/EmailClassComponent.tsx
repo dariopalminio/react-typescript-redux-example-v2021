@@ -1,47 +1,24 @@
 import * as React from "react";
+import { connect } from "react-redux";
 import { changeEmail } from "../store/reducers/profileReducer";
 import { store } from "../store/store";
+import { TStore } from "../store/store";
 
-export default class EmailClassComponent extends React.Component<any, any> {
-  _isMounted = false; // note this flag denote mount status
+class EmailClassComponent extends React.Component<any, any> {
 
   inputRef = React.createRef<HTMLInputElement>();
 
-  constructor(props: any) {
-    super(props);
-    this.state = { inputEmail: "", outputEmail: "" };
-
-    var self = this;
-
-    // Subscribe to store with callback function to listen changes from store
-    store.subscribe(() => {
-      this._isMounted = true;
-      if (this._isMounted) {
-        var data = store.getState().profileReducer.email;
-        self.updateComponentData(data);
-        console.log("Component receive data from store with subscribe");
-        //This throws Warning: Can't call setState on a component that is not yet mounted.
-        //This is a no-op, but it might indicate a bug in your application.
-      }
-    });
-  }
-
-  updateComponentData(data: string) {
-    this.setState({ outputEmail: data });
-  }
-
-  componentWillUnmount() {
-    this._isMounted = false;
-  }
-
-  public handleOnChange(event: any): void {
-    this.setState({ inputEmail: event.target.value });
-  }
+  // Constructor is not necessary
+  //constructor(props: any) {
+  //  super(props);
+  //  this.state = { email: "" };
+  //}
 
   public handleEmailChange = () => {
-    var value = this.state.inputEmail;
+    var value = "";
+    if (this.inputRef.current) value = this.inputRef.current.value;
 
-    // Triggers an action for the reducer to modify the state in store
+    // Triggers an action for the reducer to modify the state in store.
     store.dispatch(changeEmail({ email: value }));
 
     if (this.inputRef.current) this.inputRef.current.value = "";
@@ -52,16 +29,31 @@ export default class EmailClassComponent extends React.Component<any, any> {
       <div style={{ backgroundColor: "#7c9ecc" }}>
         <h1>EmailClassComponent</h1>
         <div>
-          <input
-            ref={this.inputRef}
-            placeholder="newEmail@gmail.com"
-            onChange={(e) => this.handleOnChange(e)}
-          />
+          <input ref={this.inputRef} placeholder="newEmail@gmail.com" />
 
           <button onClick={this.handleEmailChange}>Change email</button>
         </div>
-        <h2>Email: {this.state.outputEmail}</h2>
+        {console.log("render Prop:", this.props)}
+        <h2>Email: {this.props.email}</h2>
       </div>
     );
   }
 }
+
+/**
+ * If a mapStateToProps function is specified, the new wrapper component
+ * will subscribe to Redux store updates. This means that any time the store is updated,
+ * mapStateToProps will be called. The results of mapStateToProps must be a plain object,
+ * which will be merged into the wrapped component’s props.
+ * If your mapStateToProps function is declared as taking one parameter,
+ * it will be called whenever the store state changes, and given the store state as
+ * the only parameter.
+ * @param state
+ * @returns
+ */
+const mapStateToProps = (state: TStore) => state.profileReducer;
+
+/**
+ * The connect() function connects a React component to a Redux store.
+ */
+export default connect(mapStateToProps, null)(EmailClassComponent);

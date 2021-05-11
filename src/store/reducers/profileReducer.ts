@@ -1,7 +1,7 @@
 
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
-type TPayload = {
+type TEmailPayload = {
   email: string;
 };
 
@@ -23,7 +23,7 @@ const profileSlice = createSlice({
     email: '',
   },
   reducers: {
-    changeEmail: (state, { payload }: PayloadAction<TPayload>) => {
+    changeEmail: (state, { payload }: PayloadAction<TEmailPayload>) => {
       state.email = payload.email;
       console.log("Reducer profileSlice change state in store.");
     },
