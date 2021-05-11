@@ -10,12 +10,18 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 # Commands used to create the this project:
 
 npx create-react-app react-typescript-redux-example --template typescript
-npm install @reduxjs/toolkit --save-dev
-npm install @types/react-redux --save-dev
-npm install react-redux --save-dev
-npm install @types/redux-logger --save-dev
-npm install redux-logger --save-dev
-npm install redux-thunk --save-dev
+
+npm install @reduxjs/toolkit --save-dev.\
+
+npm install @types/react-redux --save-dev.\
+
+npm install react-redux --save-dev.\
+
+npm install @types/redux-logger --save-dev.\
+
+npm install redux-logger --save-dev.\
+
+npm install redux-thunk --save-dev.\
 
 References:
 https://es.redux.js.org/
