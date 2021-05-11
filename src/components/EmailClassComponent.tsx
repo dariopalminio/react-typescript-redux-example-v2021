@@ -41,7 +41,7 @@ export default class EmailClassComponent extends React.Component<any, any> {
   public handleEmailChange = () => {
     var value = this.state.inputEmail;
 
-    //Triggers an action for the reducer to modify the state in store
+    // Triggers an action for the reducer to modify the state in store
     store.dispatch(changeEmail({ email: value }));
 
     if (this.inputRef.current) this.inputRef.current.value = "";
