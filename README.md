@@ -27,7 +27,13 @@ https://redux.js.org/tutorials/essentials/part-5-async-logic
 
 ## Available Scripts
 
+Clone this repository.
+
 In the project directory, you can run:
+
+### `npm install`
+
+Excecute nmp install
 
 ### `npm start`
 
