@@ -9,7 +9,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 # Commands used to create the this project:
 
-npx create-react-app react-typescript-redux-example --template typescript
+npx create-react-app react-typescript-redux-example-v2021 --template typescript
 
 npm install @reduxjs/toolkit --save-dev
 
