@@ -1,7 +1,5 @@
 import * as React from "react";
 import { changeEmail } from "../store/reducers/profileReducer";
-//import { useDispatch, useSelector } from "react-redux";
-//import { TStore } from "../store/store";
 import { store } from "../store/store";
 
 export default class EmailClassComponent extends React.Component<any, any> {

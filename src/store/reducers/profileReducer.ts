@@ -12,7 +12,7 @@ type TPayload = {
  * Then, handle actions in your reducer.
  * name: A string name for this slice of state. Generated action type constants will use this as a prefix.
  * initialState: The initial state value for this slice of state. 
- *               El valor actual de la aplicación se llama state.
+ *               The current value of the application is called state.
  * reducers: An object containing Redux "case reducer" functions.
  * (functions intended to handle a specific action type, equivalent to a single case statement in a switch).
  * Reference: https://redux-toolkit.js.org/api/createSlice

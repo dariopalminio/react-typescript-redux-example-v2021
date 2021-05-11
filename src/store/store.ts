@@ -4,11 +4,11 @@ import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 
 /**
- * Toda la data de la aplicación se encuentra en una estructura store predefinida.
- * El valor actual de la aplicación se llama state.
- * El store jamas se modifica de forma directa por componentes.
- * El nuevo estado se crea por medio de una función reducer que recibe la combinación
- * del estado antiguo y una acción.
+ * All the application data is in a predefined store structure.
+ * The current value of the application is called state.
+ * The store is never directly modified by components.
+ * The new state is created by means of a reduce function that receives 
+ * the combination of the old state and an action.
  * The "configureStore" is a friendly abstraction over the standard Redux 
  * createStore function that adds good defaults to the store setup .
  */

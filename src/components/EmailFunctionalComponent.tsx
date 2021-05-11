@@ -15,7 +15,7 @@ const EmailFunctionalComponent = () => {
       value = htmlInputElement.current.value;
     };
 
-    // Emite la acción con el profileReducer de cambiar el email en el store
+    // Issue the action with the profileReducer to change the email in the store.
     dispatch(changeEmail({ email: value }));
 
     if (htmlInputElement.current) {
