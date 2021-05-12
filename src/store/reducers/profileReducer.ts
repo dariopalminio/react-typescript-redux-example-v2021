@@ -1,8 +1,12 @@
 
-import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 type TEmailPayload = {
   email: string;
+};
+
+const emailInitialState: TEmailPayload = {
+  email: '',
 };
 
 /**
@@ -19,13 +23,14 @@ type TEmailPayload = {
  */
 const profileSlice = createSlice({
   name: 'profile',
-  initialState: {
-    email: '',
-  },
+  initialState: emailInitialState,
   reducers: {
     changeEmail: (state, { payload }: PayloadAction<TEmailPayload>) => {
+      console.log("profileReducer receive old state:", state.email);
+      console.log("profileReducer change state in store with payload value.");
+      //The store is never directly modified by components.
+      //Only here the state in store can be changed.
       state.email = payload.email;
-      console.log("Reducer profileSlice change state in store.");
     },
   },
 });
